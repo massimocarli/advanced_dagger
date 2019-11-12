@@ -19,7 +19,7 @@ class NewsDetailPresenterImpl @Inject constructor(
   NewsDetailPresenter {
 
   override fun displayNewsDetail(newsId: Long) {
-    Log.i(TAG, "In NewsDetailPresenterImpl using Repository $newsRepository")
+    Log.i(TAG, "In $this using Repository $newsRepository")
     newsRepository.byId(newsId)?.let { news ->
       view?.displayNews(news)
     }

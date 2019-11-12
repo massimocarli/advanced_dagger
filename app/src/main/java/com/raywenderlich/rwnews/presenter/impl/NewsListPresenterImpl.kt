@@ -19,7 +19,7 @@ class NewsListPresenterImpl @Inject constructor(
   NewsListPresenter {
 
   override fun displayNewsList() {
-    Log.i(TAG, "In NewsListPresenterImpl using Repository $newsRepository")
+    Log.i(TAG, "In $this using Repository $newsRepository")
     val newsList = newsRepository.list()
     view?.displayNews(NewsListModel(newsList))
   }
