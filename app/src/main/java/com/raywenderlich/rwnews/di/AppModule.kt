@@ -20,8 +20,4 @@ class AppModule {
   @Provides
   fun provideNewsDetailPresenter(repo: NewsRepository): NewsDetailPresenter =
     NewsDetailPresenterImpl(repo)
-
-  @Provides
-  @Singleton
-  fun provideRepository(): NewsRepository = MemoryNewsRepository()
 }
