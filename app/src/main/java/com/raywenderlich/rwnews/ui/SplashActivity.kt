@@ -28,7 +28,7 @@
  * THE SOFTWARE.
  */
 
-package com.raywenderlich.rwnews
+package com.raywenderlich.rwnews.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -36,6 +36,7 @@ import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.raywenderlich.rwnews.R
 
 /**
  * Splash Screen with the app icon and name at the center, this is also the launch screen and
