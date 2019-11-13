@@ -14,9 +14,8 @@ class InitApp : Application() {
 
   override fun onCreate() {
     super.onCreate()
-    appComponent = DaggerAppComponent.builder()
-      .repository(MemoryNewsRepository())
-      .build()
+    appComponent = DaggerAppComponent.factory()
+      .create(MemoryNewsRepository())
   }
 
   /**
