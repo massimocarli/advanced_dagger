@@ -5,7 +5,7 @@ import com.raywenderlich.rwnews.ui.detail.NewsDetailFragment
 import dagger.Component
 import javax.inject.Singleton
 
-@Component(modules = arrayOf(AppModule::class, NewsRepositoryModule::class))
+@Component(modules = arrayOf(AppModule::class))
 @Singleton
 interface AppComponent {
 
