@@ -4,18 +4,15 @@ import com.raywenderlich.rwnews.presenter.NewsDetailPresenter
 import com.raywenderlich.rwnews.presenter.NewsListPresenter
 import com.raywenderlich.rwnews.presenter.impl.NewsDetailPresenterImpl
 import com.raywenderlich.rwnews.presenter.impl.NewsListPresenterImpl
-import com.raywenderlich.rwnews.repository.NewsRepository
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 
 @Module
-class AppModule(
-  private val repo: NewsRepository
-) {
+abstract class AppModule {
 
-  @Provides
-  fun provideNewsListPresenter(): NewsListPresenter = NewsListPresenterImpl(repo)
+  @Binds
+  abstract fun provideNewsListPresenter(impl: NewsListPresenterImpl): NewsListPresenter
 
-  @Provides
-  fun provideNewsDetailPresenter(): NewsDetailPresenter = NewsDetailPresenterImpl(repo)
+  @Binds
+  abstract fun provideNewsDetailPresenter(impl: NewsDetailPresenterImpl): NewsDetailPresenter
 }

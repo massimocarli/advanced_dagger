@@ -2,7 +2,6 @@ package com.raywenderlich.rwnews.init
 
 import android.app.Application
 import com.raywenderlich.rwnews.di.AppComponent
-import com.raywenderlich.rwnews.di.AppModule
 import com.raywenderlich.rwnews.di.DaggerAppComponent
 import com.raywenderlich.rwnews.repository.impl.MemoryNewsRepository
 
@@ -16,7 +15,7 @@ class InitApp : Application() {
   override fun onCreate() {
     super.onCreate()
     appComponent = DaggerAppComponent.builder()
-      .appModule(AppModule(MemoryNewsRepository()))
+      .repository(MemoryNewsRepository())
       .build()
   }
 
