@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.raywenderlich.rwnews.R
+import com.raywenderlich.rwnews.di.NewsModule
 import com.raywenderlich.rwnews.init.InitApp
 import com.raywenderlich.rwnews.model.NewsListModel
 import com.raywenderlich.rwnews.presenter.NewsListPresenter
@@ -32,7 +33,8 @@ class NewsListFragment : Fragment(), NewsListView {
 
   override fun onAttach(context: Context) {
     (context.applicationContext as InitApp)
-      .appComp().inject(this)
+      .appComp().newsComponent(NewsModule())
+      .inject(this)
     super.onAttach(context)
   }
 

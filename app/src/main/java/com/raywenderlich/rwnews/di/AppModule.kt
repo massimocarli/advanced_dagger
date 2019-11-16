@@ -1,18 +1,15 @@
 package com.raywenderlich.rwnews.di
 
-import com.raywenderlich.rwnews.presenter.NewsDetailPresenter
-import com.raywenderlich.rwnews.presenter.NewsListPresenter
-import com.raywenderlich.rwnews.presenter.impl.NewsDetailPresenterImpl
-import com.raywenderlich.rwnews.presenter.impl.NewsListPresenterImpl
-import dagger.Binds
+import com.raywenderlich.rwnews.repository.NewsRepository
+import com.raywenderlich.rwnews.repository.impl.MemoryNewsRepository
 import dagger.Module
+import dagger.Provides
+import javax.inject.Singleton
 
 @Module
-abstract class AppModule {
+class AppModule {
 
-  @Binds
-  abstract fun provideNewsListPresenter(impl: NewsListPresenterImpl): NewsListPresenter
-
-  @Binds
-  abstract fun provideNewsDetailPresenter(impl: NewsDetailPresenterImpl): NewsDetailPresenter
+  @Provides
+  @Singleton
+  fun repository(): NewsRepository = MemoryNewsRepository()
 }
