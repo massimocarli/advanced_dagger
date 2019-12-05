@@ -5,10 +5,8 @@ import com.raywenderlich.rwnews.presenter.NewsListPresenter
 import com.raywenderlich.rwnews.presenter.impl.NewsDetailPresenterImpl
 import com.raywenderlich.rwnews.presenter.impl.NewsListPresenterImpl
 import com.raywenderlich.rwnews.repository.NewsRepository
-import com.raywenderlich.rwnews.repository.impl.MemoryNewsRepository
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module
 class AppModule {
@@ -20,8 +18,4 @@ class AppModule {
   @Provides
   fun provideNewsDetailPresenter(repo: NewsRepository): NewsDetailPresenter =
     NewsDetailPresenterImpl(repo)
-
-  @Provides
-  @Singleton
-  fun provideRepository(): NewsRepository = MemoryNewsRepository()
 }
