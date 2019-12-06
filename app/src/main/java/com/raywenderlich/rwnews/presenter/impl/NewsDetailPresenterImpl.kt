@@ -7,12 +7,13 @@ import com.raywenderlich.rwnews.model.NewsModel
 import com.raywenderlich.rwnews.presenter.NewsDetailPresenter
 import com.raywenderlich.rwnews.repository.NewsRepository
 import com.raywenderlich.rwnews.ui.detail.NewsDetailView
+import javax.inject.Inject
 
 
 /**
  * Presenter for the display of the list
  */
-class NewsDetailPresenterImpl(
+class NewsDetailPresenterImpl @Inject constructor(
   private val newsRepository: NewsRepository
 ) : BasePresenter<NewsModel, NewsDetailView>(),
   NewsDetailPresenter {

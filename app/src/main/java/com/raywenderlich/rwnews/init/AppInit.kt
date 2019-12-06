@@ -17,7 +17,7 @@ class InitApp : Application() {
     super.onCreate()
     appComponent = DaggerAppComponent
       .builder()
-      .appModule(AppModule(MemoryNewsRepository()))
+      .repository(MemoryNewsRepository())
       .build()
   }
 
