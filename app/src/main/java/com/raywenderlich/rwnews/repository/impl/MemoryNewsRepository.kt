@@ -2,14 +2,11 @@ package com.raywenderlich.rwnews.repository.impl
 
 import com.raywenderlich.rwnews.repository.NewsRepository
 import com.raywenderlich.rwnews.repository.entity.News
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Repository implementation in memory
  */
-@Singleton
-class MemoryNewsRepository @Inject constructor() : NewsRepository {
+class MemoryNewsRepository : NewsRepository {
 
   private val newsMap = mutableMapOf<Long, News>()
 
