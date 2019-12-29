@@ -76,7 +76,7 @@ class NewsListFragment : Fragment(), NewsListView {
       fragmentManager?.run {
         beginTransaction()
           .replace(R.id.anchor, NewsDetailFragment.create(bundle))
-          .addToBackStack("detail")
+          .addToBackStack(null)
           .commit()
       }
     }
