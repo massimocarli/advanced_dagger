@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.raywenderlich.rwnews.R
-import com.raywenderlich.rwnews.di.DaggerAppComponent
+import com.raywenderlich.rwnews.init.InitApp
 import com.raywenderlich.rwnews.model.NewsListModel
 import com.raywenderlich.rwnews.presenter.NewsListPresenter
 import com.raywenderlich.rwnews.ui.detail.NewsDetailFragment
@@ -31,7 +31,8 @@ class NewsListFragment : Fragment(), NewsListView {
   private val newsListModel = NewsListModel(emptyList())
 
   override fun onAttach(context: Context) {
-    DaggerAppComponent.create().inject(this)
+    (context.applicationContext as InitApp) // HERE
+      .appComp().inject(this)
     super.onAttach(context)
   }
 

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.raywenderlich.rwnews.R
-import com.raywenderlich.rwnews.di.DaggerAppComponent
+import com.raywenderlich.rwnews.init.InitApp
 import com.raywenderlich.rwnews.presenter.NewsDetailPresenter
 import com.raywenderlich.rwnews.repository.entity.News
 import javax.inject.Inject
@@ -34,7 +34,8 @@ class NewsDetailFragment : Fragment(), NewsDetailView {
   }
 
   override fun onAttach(context: Context) {
-    DaggerAppComponent.create().inject(this)
+    (context.applicationContext as InitApp) // HERE
+      .appComp().inject(this)
     super.onAttach(context)
   }
 
