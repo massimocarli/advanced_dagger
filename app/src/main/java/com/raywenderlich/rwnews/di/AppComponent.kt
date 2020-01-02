@@ -1,7 +1,6 @@
 package com.raywenderlich.rwnews.di
 
-import com.raywenderlich.news.android.ui.list.NewsListFragment
-import com.raywenderlich.rwnews.ui.detail.NewsDetailFragment
+import com.raywenderlich.rwnews.repository.NewsRepository
 import dagger.Component
 import javax.inject.Singleton
 
@@ -9,8 +8,6 @@ import javax.inject.Singleton
 @Singleton
 interface AppComponent {
 
-  fun inject(frag: NewsListFragment)
-
-  fun inject(frag: NewsDetailFragment)
+  fun repository(): NewsRepository
 }
 

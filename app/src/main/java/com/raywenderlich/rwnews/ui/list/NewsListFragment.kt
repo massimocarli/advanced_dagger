@@ -2,6 +2,7 @@ package com.raywenderlich.news.android.ui.list
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +11,10 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.raywenderlich.rwnews.R
-import com.raywenderlich.rwnews.init.InitApp
+import com.raywenderlich.rwnews.conf.TAG
 import com.raywenderlich.rwnews.model.NewsListModel
 import com.raywenderlich.rwnews.presenter.NewsListPresenter
+import com.raywenderlich.rwnews.ui.FeatureComponentProvider
 import com.raywenderlich.rwnews.ui.detail.NewsDetailFragment
 import com.raywenderlich.rwnews.ui.list.NewsListView
 import javax.inject.Inject
@@ -31,9 +33,9 @@ class NewsListFragment : Fragment(), NewsListView {
   private val newsListModel = NewsListModel(emptyList())
 
   override fun onAttach(context: Context) {
-    (context.applicationContext as InitApp) // HERE
-      .appComp().inject(this)
+    (context as FeatureComponentProvider).get().inject(this)
     super.onAttach(context)
+    Log.i(TAG, "In NewsListFragment using NewsListPresenter $newsListPresenter")
   }
 
   override fun onCreateView(

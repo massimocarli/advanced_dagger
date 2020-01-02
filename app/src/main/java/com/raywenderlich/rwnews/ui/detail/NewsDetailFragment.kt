@@ -2,15 +2,17 @@ package com.raywenderlich.rwnews.ui.detail
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.raywenderlich.rwnews.R
-import com.raywenderlich.rwnews.init.InitApp
+import com.raywenderlich.rwnews.conf.TAG
 import com.raywenderlich.rwnews.presenter.NewsDetailPresenter
 import com.raywenderlich.rwnews.repository.entity.News
+import com.raywenderlich.rwnews.ui.FeatureComponentProvider
 import javax.inject.Inject
 
 /**
@@ -34,9 +36,9 @@ class NewsDetailFragment : Fragment(), NewsDetailView {
   }
 
   override fun onAttach(context: Context) {
-    (context.applicationContext as InitApp) // HERE
-      .appComp().inject(this)
+    (context as FeatureComponentProvider).get().inject(this)
     super.onAttach(context)
+    Log.i(TAG, "In NewsDetailFragment using NewsDetailPresenter $newsDetailPresenter")
   }
 
   override fun onCreateView(
