@@ -2,11 +2,10 @@ package com.raywenderlich.rwnews.di
 
 import com.raywenderlich.news.android.ui.list.NewsListFragment
 import com.raywenderlich.rwnews.ui.detail.NewsDetailFragment
-import dagger.Component
+import dagger.Subcomponent
 
-@Component(
-  modules = arrayOf(FeatureModule::class),
-  dependencies = arrayOf(AppComponent::class)
+@Subcomponent(
+  modules = arrayOf(FeatureModule::class)
 )
 @FeatureScope
 interface FeatureComponent {

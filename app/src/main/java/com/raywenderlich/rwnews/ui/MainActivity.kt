@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.raywenderlich.news.android.ui.list.NewsListFragment
 import com.raywenderlich.rwnews.R
-import com.raywenderlich.rwnews.di.DaggerFeatureComponent
 import com.raywenderlich.rwnews.di.FeatureComponent
 import com.raywenderlich.rwnews.init.InitApp
 import javax.inject.Provider
@@ -25,10 +24,7 @@ class MainActivity : AppCompatActivity(), FeatureComponentProvider {
       supportFragmentManager.beginTransaction()
         .replace(R.id.anchor, NewsListFragment())
         .commit()
-      val appComp = (applicationContext as InitApp).appComp()
-      featureComp = DaggerFeatureComponent.builder()
-        .appComponent(appComp)
-        .build()
+      featureComp = (applicationContext as InitApp).appComp().featureComp()
     }
   }
 

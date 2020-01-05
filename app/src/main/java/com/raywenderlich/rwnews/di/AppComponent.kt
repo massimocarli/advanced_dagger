@@ -1,13 +1,12 @@
 package com.raywenderlich.rwnews.di
 
-import com.raywenderlich.rwnews.repository.NewsRepository
 import dagger.Component
 import javax.inject.Singleton
 
-@Component(modules = arrayOf(AppModule::class))
+@Component(modules = arrayOf(AppModule::class, FeatureModule::class))
 @Singleton
 interface AppComponent {
 
-  fun repository(): NewsRepository
+  fun featureComp(): FeatureComponent
 }
 
