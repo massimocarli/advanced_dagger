@@ -7,6 +7,7 @@ import com.raywenderlich.rwnews.di.FeatureScope
 import com.raywenderlich.rwnews.model.NewsModel
 import com.raywenderlich.rwnews.presenter.NewsDetailPresenter
 import com.raywenderlich.rwnews.repository.NewsRepository
+import com.raywenderlich.rwnews.stats.NewsStats
 import com.raywenderlich.rwnews.ui.detail.NewsDetailView
 import javax.inject.Inject
 
@@ -16,7 +17,8 @@ import javax.inject.Inject
  */
 @FeatureScope
 class NewsDetailPresenterImpl @Inject constructor(
-  private val newsRepository: NewsRepository
+  private val newsRepository: NewsRepository,
+  private val newsStats: @JvmSuppressWildcards(true) Set<NewsStats>
 ) : BasePresenter<NewsModel, NewsDetailView>(),
   NewsDetailPresenter {
 
@@ -24,6 +26,9 @@ class NewsDetailPresenterImpl @Inject constructor(
     Log.i(TAG, "In NewsDetailPresenterImpl using Repository $newsRepository")
     newsRepository.byId(newsId)?.let { news ->
       view?.displayNews(news)
+      newsStats.forEach { stats ->
+        stats.printStats(news)
+      }
     }
   }
 }

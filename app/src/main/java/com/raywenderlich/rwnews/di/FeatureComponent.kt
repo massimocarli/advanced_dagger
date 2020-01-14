@@ -5,7 +5,10 @@ import com.raywenderlich.rwnews.ui.detail.NewsDetailFragment
 import dagger.Subcomponent
 
 @Subcomponent(
-  modules = arrayOf(FeatureModule::class)
+  modules = arrayOf(
+    FeatureModule::class,
+    StatsModule::class
+  )
 )
 @FeatureScope
 interface FeatureComponent {
